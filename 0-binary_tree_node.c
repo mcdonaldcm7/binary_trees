@@ -19,5 +19,7 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 	new_node->n = value;
 	if (parent != (void *) 0)
 		new_node->parent = parent;
+	new_node->left = (void *) 0;
+	new_node->right = (void *) 0;
 	return (new_node);
 }
