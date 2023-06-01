@@ -11,6 +11,8 @@ unsigned int single_child_node(const binary_tree_t *node)
 {
 	if (!node)
 		return (0);
+	if (!node->left && !node->right)
+		return (0);
 	if (!node->left || !node->right)
 		return (1);
 	return (single_child_node(node->left) +
@@ -28,5 +30,5 @@ unsigned int binary_tree_nodes(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
-	return(single_child_node(tree));
+	return (single_child_node(tree));
 }
