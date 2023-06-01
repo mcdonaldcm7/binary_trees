@@ -38,4 +38,5 @@ unsigned int binary_tree_leaves(const binary_tree_t *);
 unsigned int binary_tree_nodes(const binary_tree_t *);
 int binary_tree_balance(const binary_tree_t *);
 int binary_tree_is_full(const binary_tree_t *);
+int binary_tree_is_perfect(const binary_tree_t *);
 #endif
