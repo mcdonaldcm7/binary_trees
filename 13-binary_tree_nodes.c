@@ -6,6 +6,7 @@
  * single_child_node - Counts and returns the number of single child node
  *
  * @node: Pointer to node to begin count
+ * @count: Number of nodes with single child at code point
  *
  * Return: Number of single child node
  */
