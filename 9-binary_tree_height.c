@@ -40,5 +40,7 @@ unsigned int node_height(const binary_tree_t *node, unsigned int count)
  */
 unsigned int binary_tree_height(const binary_tree_t *tree)
 {
+	if (!tree)
+		return (0);
 	return (node_height(tree, 0));
 }
