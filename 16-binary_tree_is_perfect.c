@@ -48,6 +48,23 @@ unsigned int node_height(const binary_tree_t *node, unsigned int count)
 }
 
 /**
+ * height_check - Performs a height check for each and every level of the tree
+ *
+ * @node: Pointer to the node to begin check from (may or my not be the root)
+ *
+ * Return: 1 if all levels of the tree (or subtree) pointed to by node has the
+ * same level, 0 otherwise
+ */
+int height_check(const binary_tree_t *node)
+{
+	if (!node->left && !node->right)
+		return (1);
+	if (node_height(node->left, 0) != node_height(node->right, 0))
+		return (0);
+	return ((int) height_check(node->left) && height_check(node->right));
+}
+
+/**
  * binary_tree_is_perfect - Checks if a binary tree is perfect
  *
  * @tree: Pointer to the root node of the tree to check
@@ -58,6 +75,5 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
-	return ((int) (is_tree_full(tree) && (node_height(tree->left, 0) ==
-					node_height(tree->right, 0))));
+	return ((int) (is_tree_full(tree) && height_check(tree)));
 }
