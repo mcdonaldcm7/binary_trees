@@ -69,8 +69,8 @@ int is_tree_complete(const binary_tree_t *node)
 		if (!((int) is_tree_full(node->parent->left) &&
 				height_check(node->parent->left)))
 			return (0);
-	height_left = node_height(node->left, 0);
-	height_right = node_height(node->right, 0);
+	height_left = node->left ? node_height(node->left, 0) : 0;
+	height_right = node->right ? node_height(node->right, 0) : 0;
 	if ((height_right > height_left) || (height_left - height_right) > 1)
 		return (0);
 	if (!node->left && node->right)
@@ -84,7 +84,7 @@ int is_tree_complete(const binary_tree_t *node)
 		if (node == node->parent->left)
 			return (1);
 		return ((int) is_tree_full(node->parent->left) &&
-				height_check(node));
+				height_check(node->parent->left));
 	}
 	return ((int) is_tree_complete(node->left) &&
 			is_tree_complete(node->right));
